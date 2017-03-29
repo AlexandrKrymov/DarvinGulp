@@ -1,0 +1,64 @@
+.form-notify{
+  clear: both;
+  display: block;
+  line-height: 1;
+  text-transform: none;
+  text-decoration: none;
+  *{
+    display: block;
+    list-style: none;
+    @include fontParent();
+  }
+  &.error{
+    text-align: left;
+    color: red;
+    font-size: 12px;
+    font-weight: $font-light;
+  }
+  &.success{
+    color: green;
+    *{
+      text-align: center;
+      font-size: $font-size-base;
+      font-weight: $font-semibold;
+    }
+  }
+}
+
+textarea{
+  border: none;
+  display: block;
+  width: 100%;
+  min-height: 40*4px;
+  line-height: 40px;
+  resize: none;
+
+  @include placeholder(){
+    
+    @include transition(.3s);
+  }
+  @include placeholderHover(){
+   
+  }
+}
+
+
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="phone"], input[type="number"],  input[type="search"] {
+  display: block;
+  text-align: left;
+  width: 100%;
+  border: none;
+  @include appearance;
+  @include transition(.3s);
+  @include placeholder(){
+   
+    @include transition(.3s);
+  }
+  @include placeholderHover(){
+  
+  }
+  &:hover,&:focus,&.is-changed{
+   
+  }
+}
+

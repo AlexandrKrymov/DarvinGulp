@@ -1,0 +1,64 @@
+.logo{
+  a{
+    text-decoration: none;
+  }
+  img{
+    max-width: 100%;
+  }
+}
+
+ul, ol {
+  @include designList(){
+   
+   
+  }
+}
+
+
+table{
+  @include designTable(table-stripped){
+    th,td{
+     
+    }
+    th{
+    
+    }
+    td{
+     
+    }
+    tr:nth-child(odd){
+      td{
+       
+      }
+    }
+  }
+}
+
+.bigpic{
+  
+}
+
+
+.owl-carousel{
+  .owl-nav{
+    font-size: 0;
+    .owl-prev, .owl-next{
+     
+    }
+    .owl-prev{
+     
+      &:hover{
+        
+      }
+    }
+    .owl-next{
+     
+      &:hover{
+     
+      }
+    }
+  }
+}
+
+
+

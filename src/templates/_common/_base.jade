@@ -1,0 +1,28 @@
+include _mixins/mixins-files.jade
+
+block variables
+
+doctype html
+html.no-js
+	include _head.jade
+
+	body(class=""+pageClass)
+		#wrapper.layout-wrapper
+			<!--[if lt IE 9]>
+			<p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
+			<![endif]-->
+
+			block header
+
+			block content
+
+			block footer
+
+		#js-btn-scroll-top.btn-scroll-top
+			.icon.icons-arrow-top-lg
+		include _components/_photoswipe-window.jade
+
+
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+		script(src="assets/scripts/vendor.js")
+		script(src="assets/scripts/app.js")

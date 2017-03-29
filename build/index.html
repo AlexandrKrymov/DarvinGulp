@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Главная</title>
+    <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <script src="assets/scripts/modernizr-custom.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/vendor.css">
+    <link rel="stylesheet" href="assets/styles/app.css"><!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+  </head>
+  <body class="page-home">
+    <div class="layout-wrapper" id="wrapper"><!--[if lt IE 9]>
+<p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
+<![endif]-->
+      <header class="layout-header" id="header"></header>
+      <div class="layout-body">
+        <div class="page-header">
+          <div class="container"></div>
+        </div>
+        <div class="page-body">
+          <div class="container">
+            <div class="page-content"></div>
+          </div>
+        </div>
+      </div>
+      <footer class="layout-footer" id="footer"></footer>
+    </div>
+    <div class="btn-scroll-top" id="js-btn-scroll-top">
+      <div class="icon icons-arrow-top-lg"></div>
+    </div>
+    <!-- Root element of PhotoSwipe. Must have class pswp.-->
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+      <!--
+      Background of PhotoSwipe.
+      It's a separate element as animating opacity is faster than rgba().
+      -->
+      <div class="pswp__bg"></div>
+      <!-- Slides wrapper with overflow:hidden.-->
+      <div class="pswp__scroll-wrap">
+        <!--
+        Container that holds slides.
+        PhotoSwipe keeps only 3 of them in the DOM to save memory.
+        Don't modify these 3 pswp__item elements, data is added later on.
+        -->
+        <div class="pswp__container">
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed.-->
+        <div class="pswp__ui pswp__ui--hidden">
+          <div class="pswp__top-bar">
+            <!-- Controls are self-explanatory. Order can be changed.-->
+            <div class="pswp__counter"></div>
+            <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+            <button class="pswp__button pswp__button--share" title="Share"></button>
+            <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+            <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+            <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR-->
+            <!-- element will get class pswp__preloader--active when preloader is running-->
+            <div class="pswp__preloader">
+              <div class="pswp__preloader__icn">
+                <div class="pswp__preloader__cut">
+                  <div class="pswp__preloader__donut"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+            <div class="pswp__share-tooltip"></div>
+          </div>
+          <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+          <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+          <div class="pswp__caption">
+            <div class="pswp__caption__center"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="assets/scripts/vendor.js"></script>
+    <script src="assets/scripts/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+extends ../_common/_base.jade
+
+block variables
+	- var title = "Текстовая страница"
+	- var pageClass = "page"
+
+block header
+	include ../_common/_header.jade
+	
+
+block content
+	.layout-body
+		.page-header
+			.container
+
+		.page-body
+			.container
+				.page-content
+				.page-sidebar
+				
+
+block footer
+	include ../_common/_footer.jade

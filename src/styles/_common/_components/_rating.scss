@@ -1,0 +1,50 @@
+.rating{
+  display: inline-block;
+  vertical-align: top;
+  @include clearfix;
+ }
+.rating > input { display: none;
+}
+.rating > label .icon {
+  margin:  0 rem(2.5px);
+  font-size: rem(14px);
+  display: block;
+  fill: $color-menu-light;
+  opacity: .3;
+}
+
+.rating > .rating__half .icon {
+  position: absolute;
+  opacity: 0;
+}
+
+.rating > label {
+  height: 13px;
+  color: #ddd;
+  float: right;
+  display: block;
+}
+
+.rating > input:checked ~ label {
+  .icon{
+    opacity: 1;
+  }
+}
+
+
+
+.rating:not(.disabled) > label:hover,
+.rating:not(.disabled) > label:hover ~ label {
+  .icon{
+    opacity: 1;
+  }
+}
+
+.rating:not(.disabled) > input:checked + label:hover,
+.rating:not(.disabled) > input:checked ~ label:hover,
+.rating:not(.disabled) > label:hover ~ input:checked ~ label,
+.rating:not(.disabled) > input:checked ~ label:hover ~ label {
+  .icon{
+    opacity: 1;
+  }
+}

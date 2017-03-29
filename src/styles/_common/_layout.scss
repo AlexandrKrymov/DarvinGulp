@@ -1,0 +1,60 @@
+.container {
+  width: 100%;
+  max-width: $container-width;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 $grid-gutter-width;
+}
+.container-fixed {
+  width: $container-width;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 $grid-gutter-width;
+}
+.container-fluid {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 $grid-gutter-width;
+}
+.container-overflow{
+  overflow: hidden;
+  display: block;
+}
+
+
+.layout-header{
+	
+}
+.layout-body{
+	
+}
+.layout-footer{
+	
+}
+
+.page-header{
+  
+}
+.page-body{
+
+}
+
+.page-content{
+
+}
+.page-sidebar{
+	
+}
+
+
+
+
+
+.btn-scroll-top{
+  position: fixed;
+  z-index: 50;
+  right: 10%;
+  bottom: 10%;
+  cursor: pointer;
+}
+

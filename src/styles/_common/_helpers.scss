@@ -1,0 +1,77 @@
+.clear {
+ @include clearfix;
+}
+
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
+
+.no-margin{
+  margin: 0;
+}
+
+.rounded{
+  border-radius: 50%;
+}
+
+.noborder {
+  border: none;
+}
+
+.justify{
+  width: 100%;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.font-inherit{
+  @include fontParent;
+}
+.font-light{
+  font-weight: $font-light;
+}
+.font-regular{
+  font-weight: $font-regular;
+}
+.font-semibold{
+  font-weight: $font-semibold;
+}
+.font-bold{
+  font-weight: $font-bold;
+}
+
+.hide-mobile{
+  @include mediaMax($screen-phone){
+    display: none;
+  }
+}
+.show-mobile{
+  @include mediaMin($screen-phone){
+    display: none;
+  }
+}
+.hide-tablet{
+  @include mediaMax($screen-tablet){
+    display: none;
+  }
+}
+.show-tablet{
+  @include mediaMin($screen-tablet){
+    display: none;
+  }
+}
+.hide-tablet{
+  @include mediaMax($screen-tablet){
+    display: none;
+  }
+}
+.show-tablet{
+  @include mediaMin($screen-tablet){
+    display: none;
+  }
+}

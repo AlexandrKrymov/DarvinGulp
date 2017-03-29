@@ -1,0 +1,58 @@
+//base
+$body-background:             #fff;
+
+
+//typography
+
+$font-family-base:            'Open Sans', sans-serif;
+$font-size-base:              15px;
+$font-color-base:             #000;
+
+$font-light:                  300;
+$font-regular:                400;
+$font-semibold:               600;
+$font-bold:                   700;
+
+//headings
+$headings-font-family:        inherit !default;
+$headings-font-weight:        $font-light !default;
+$headings-line-height:        1.1 !default;
+$headings-color:              inherit !default;
+
+$font-size-h1:                42px;
+$font-size-h2:                30px;
+$font-size-h3:                24px;
+$font-size-h4:                $font-size-h3 - 4;
+$font-size-h5:                $font-size-h4 - 2;
+$font-size-h6:                $font-size-base + 1;
+
+
+//layout
+$container-width:            980px !default;
+$window-width:               $container-width!default;
+
+
+//grid
+$grid-columns:               12 !default;
+$grid-gutter-width:          20px !default;
+
+$screen-container:           $container-width;
+$screen-xs:                  480px !default;
+$screen-sm:                  768px !default;
+$screen-md:                  $container-width !default;
+$screen-lg:                  1200px !default;
+
+
+$screen-xs-min:              $screen-xs !default;
+$screen-phone:               $screen-xs-min !default;
+$screen-sm-min:              $screen-sm !default;
+$screen-tablet:              $screen-sm-min !default;
+$screen-md-min:              $screen-md !default;
+$screen-desktop:             $screen-md-min !default;
+$screen-lg-min:              $screen-lg !default;
+$screen-lg-desktop:          $screen-lg-min !default;
+$screen-xs-max:              ($screen-sm-min - 1) !default;
+$screen-sm-max:              ($screen-md-min - 1) !default;
+$screen-md-max:              ($screen-lg-min - 1) !default;
+
+

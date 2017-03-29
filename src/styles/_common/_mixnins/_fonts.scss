@@ -1,0 +1,12 @@
+@mixin fontInherit(){
+  font-size: inherit;
+  text-align: inherit;
+  line-height: inherit;
+  text-decoration: inherit;
+  text-transform: inherit;
+  color: inherit;
+  font-family: inherit;
+  text-indent: inherit;
+  word-break: inherit;
+  white-space: inherit;
+}

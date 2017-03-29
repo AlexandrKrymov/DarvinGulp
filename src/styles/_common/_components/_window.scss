@@ -1,0 +1,80 @@
+.overlay_dark,
+.overlay_dark_ring {
+  background: rgba(0, 0, 0, 0.7);
+  bottom: 0;
+  display: block;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+#loading,
+#loading_ring {
+  background: url("../images/loader.svg") no-repeat scroll center center transparent;
+  background-size: 30px 30px;
+  bottom: 0;
+  display: block;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1120;
+}
+.window {
+  position: fixed;
+  overflow: auto;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  .window__container{
+    display: table;
+    height: 100%;
+    margin: 0 auto;
+    @include mediaMax($container-width){
+      width: 100%;
+    }
+  }
+  .window__inner{
+    display: table-cell;
+    vertical-align: middle;
+    @include mediaMax($window-width){
+      padding: $grid-gutter-width;
+    }
+  }
+
+  .window__body{
+    box-sizing: border-box;
+    width: $window-width;
+    background: #fff;
+    padding: 60px;
+    border-radius: 10px;
+    position: relative;
+    @include mediaMax($window-width){
+      width: 100%;
+    }
+    @include mediaMax($screen-xs){
+      padding: 40px 30px;
+    }
+  }
+
+  .window__close{
+    position: absolute;
+    display: block;
+    cursor: pointer;
+    top: 15px;
+    right: 15px;
+    font-size: 0;
+  }
+
+}
+
+

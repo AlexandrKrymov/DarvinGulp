@@ -1,0 +1,34 @@
+@import clearfix;
+@import grid-mixins;
+
+@mixin designList(){
+  &.with_marker, &.with-marker{
+    @content;
+  }
+}
+@mixin designTable($tableClass){
+  &.nice_table, &.#{$tableClass}{
+    @content;
+  }
+}
+
+
+@mixin appearance{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+@mixin user-select($select) {
+  -webkit-user-select: $select;
+  -moz-user-select: $select;
+  -ms-user-select: $select; // IE10+
+  user-select: $select;
+}
+
+@mixin backface-visibility($visibility) {
+  -webkit-backface-visibility: $visibility;
+  -moz-backface-visibility: $visibility;
+  backface-visibility: $visibility;
+}
+
