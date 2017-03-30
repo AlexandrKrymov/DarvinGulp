@@ -1,4 +1,27 @@
+a{
+  color: #715ea9;
+  text-decoration: underline;
+  &:hover{
+    text-decoration: none;
+  }
+}
 
+h1,.h1{
+  margin: 0 0 22px 0;
+}
+h2,.h2{
+  margin: 0 0 25px 0;
+}
+h3,.h3{
+  margin: 0 0 25px 0;
+}
+h4,h5,h6,.h4,.h5,.h6{
+  margin: 0 0 20px 0;
+}
+
+p{
+  margin: 0 0 30px 0;
+}
 
 .logo{
   a{

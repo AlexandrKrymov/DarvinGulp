@@ -5,7 +5,6 @@
   box-sizing: border-box;
   padding: 0 $grid-gutter-width;
 }
-
 .container-fixed {
   width: $container-width;
   margin: 0 auto;
@@ -23,13 +22,17 @@
 }
 
 
-.layout-header{
+.main-wrapper{
+
+}
+
+.main-header{
 	
 }
-.layout-body{
-	
+.main-body{
+  
 }
-.layout-footer{
+.main-footer{
 	
 }
 
