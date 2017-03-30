@@ -1,5 +1,10 @@
-@import clearfix;
-@import grid-mixins;
+@import "clearfix";
+@import "grid-mixins";
+@import "media";
+@import "placeholder";
+@import "transition";
+@import "fonts";
+
 
 @mixin designList(){
   &.with_marker, &.with-marker{

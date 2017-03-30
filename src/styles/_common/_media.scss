@@ -5,18 +5,9 @@
 @include mediaMax($screen-sm){
  
 }
-
-@include mediaMinMax($screen-md){
-  
-}
-
 @include mediaMax($screen-container){
   .container{
     padding-left: $grid-gutter-width;
     padding-right: $grid-gutter-width;
   }
-}
-
-@include mediaMinMax($screen-lg){
-  
 }

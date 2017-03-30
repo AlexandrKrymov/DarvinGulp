@@ -22,7 +22,13 @@ module.exports = function () {
 
     $.gulp.task('sass:vendor', function () {
         return $.gulp.src($.config.paths.src.styles + 'vendor.scss')
+            .pipe($.gp.if($.dev, $.gp.sourcemaps.init()))
+            .pipe($.gp.include({
+                extensions: ['scss','css','sass'],
+                hardFail: false
+            }))
             .pipe($.gp.sass())
+            .pipe($.gp.if($.dev, $.gp.sourcemaps.write()))
             .on('error', $.gp.notify.onError({ title: 'sass' }))
             .pipe($.gp.csso())
             .pipe($.gulp.dest($.config.paths.build.styles));

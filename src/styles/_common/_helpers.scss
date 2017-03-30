@@ -30,7 +30,7 @@
 }
 
 .font-inherit{
-  @include fontParent;
+  @include fontInherit;
 }
 .font-light{
   font-weight: $font-light;

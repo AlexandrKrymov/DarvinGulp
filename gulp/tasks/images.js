@@ -18,8 +18,8 @@ module.exports = function () {
         var spriteData = $.gulp.src([$.config.paths.src.icons + '**/*.*', '!' + $.config.paths.src.icons + '**/*.svg'])
             .pipe($.gp.spritesmith({
             imgName: '../images/icons.png',
-            cssName: '_icons-img.scss',
-            cssFormat: 'scss',
+            cssName: '_icons-img.css',
+            //cssFormat: 'scss',
             padding: 2
         }));
 
