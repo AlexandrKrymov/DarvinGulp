@@ -5,6 +5,7 @@
 
 global.$ = {
     dev: true,
+    svg:false,
     gulp: require('gulp'),
     config: require('./gulp/config'),
     tasks: require('./gulp/tasks.js'),
@@ -23,19 +24,38 @@ $.tasks.forEach(function (taskPath) {
     return require(taskPath)();
 });
 
-$.gulp.task('default',
-    $.gulp.series(
-        'clean',
-        'fonts',
-        'icons:svg',
-        'icons:img',
-        'images',
-        'js:vendor',
-        'js:modernizr',
-        'js',
-        'sass',
-        'sass:vendor',
-        'templates',
-        $.gulp.parallel('watch', 'server')
-    )
-);
+
+if($.svg){
+    $.gulp.task('default',
+        $.gulp.series(
+            'clean',
+            'fonts',
+            'icons:svg',
+            'icons:img',
+            'images',
+            'js:vendor',
+            'js:modernizr',
+            'js',
+            'sass',
+            'sass:vendor',
+            'templates',
+            $.gulp.parallel('watch', 'server')
+        )
+    );
+}else{
+    $.gulp.task('default',
+        $.gulp.series(
+            'clean',
+            'fonts',
+            'icons:img',
+            'images',
+            'js:vendor',
+            'js:modernizr',
+            'js',
+            'sass',
+            'sass:vendor',
+            'templates',
+            $.gulp.parallel('watch', 'server')
+        )
+    );
+}

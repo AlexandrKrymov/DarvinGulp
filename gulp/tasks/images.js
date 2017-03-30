@@ -17,13 +17,13 @@ module.exports = function () {
     $.gulp.task('icons:img', function () {
         var spriteData = $.gulp.src([$.config.paths.src.icons + '**/*.*', '!' + $.config.paths.src.icons + '**/*.svg'])
             .pipe($.gp.spritesmith({
-            imgName: '../images/icons.png',
-            cssName: '_icons-img.css',
-            //cssFormat: 'scss',
-            padding: 2
-        }));
+                imgName: '../images/icons.png',
+                cssName: '_icons-img.css',
+                //cssFormat: 'scss',
+                padding: 2
+            }));
 
-       var imgStream = spriteData.img
+        var imgStream = spriteData.img
             .pipe(buffer())
             .pipe($.gp.imagemin({
                 interlaced: true,
@@ -32,15 +32,14 @@ module.exports = function () {
             }))
             .pipe($.gulp.dest($.config.paths.build.images));
 
-       var cssStream = spriteData.css.pipe($.gulp.dest($.config.paths.src.styles + '_common/'));
+        var cssStream = spriteData.css.pipe($.gulp.dest($.config.paths.src.styles + '_common/'));
 
         return merge(imgStream, cssStream);
     });
 
 
-
     $.gulp.task('icons:svg', function () {
-        var svgminConfig = { js2svg: { pretty: true } };
+        var svgminConfig = {js2svg: {pretty: true}};
 
         var cheerioConfig = {
             run: function run($) {
@@ -49,7 +48,7 @@ module.exports = function () {
                 $('[style]').removeAttr('style');
             },
 
-            parserOptions: { xmlMode: true }
+            parserOptions: {xmlMode: true}
         };
 
         var svgSpriteConfig = {
@@ -66,12 +65,15 @@ module.exports = function () {
             }
         };
 
-        return $.gulp.src($.config.paths.src.icons + '**/*.svg')
-            .pipe($.gp.svgmin(svgminConfig))
-            .pipe($.gp.cheerio(cheerioConfig))
-            .pipe($.gp.replace('&gt;', '>'))
-            .pipe($.gp.svgSprite(svgSpriteConfig))
-            .pipe($.gulp.dest($.config.paths.build.images));
+
+
+        return   $.gulp.src($.config.paths.src.icons + '**/*.svg')
+                    .pipe($.gp.svgmin(svgminConfig))
+                    .pipe($.gp.cheerio(cheerioConfig))
+                    .pipe($.gp.replace('&gt;', '>'))
+                    .pipe($.gp.svgSprite(svgSpriteConfig))
+                    .pipe($.gulp.dest($.config.paths.build.images))
+
     });
 
-};
+}
