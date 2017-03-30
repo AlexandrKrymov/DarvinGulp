@@ -17,7 +17,8 @@ module.exports = function () {
                 }
             ))
             .pipe($.gp.if($.dev, $.gp.sourcemaps.write()))
-            .pipe($.gulp.dest($.config.paths.build.styles));
+            .pipe($.gulp.dest($.config.paths.build.styles))
+            .pipe($.browserSync.stream());
     });
 
     $.gulp.task('sass:vendor', function () {
@@ -31,7 +32,8 @@ module.exports = function () {
             .pipe($.gp.if($.dev, $.gp.sourcemaps.write()))
             .on('error', $.gp.notify.onError({ title: 'sass' }))
             .pipe($.gp.csso())
-            .pipe($.gulp.dest($.config.paths.build.styles));
+            .pipe($.gulp.dest($.config.paths.build.styles))
+            .pipe($.browserSync.stream());
     });
 
 

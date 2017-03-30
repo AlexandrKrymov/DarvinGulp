@@ -1,0 +1,4 @@
+@function line-height($font-size,$lh-px) {
+  $size: $lh-px / $font-size;
+  @return #{$size};
+}
