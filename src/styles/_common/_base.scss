@@ -1,13 +1,12 @@
-html{
+html, body{
   font-family: $font-family-base;
   font-size: $font-size-base;
   color: $font-color-base;
   font-weight: $font-regular;
   line-height: $line-height-base;
-}
-body{
   background: $body-background;
 }
+
 h1, .h1 { font-size: $font-size-h1; }
 h2, .h2 { font-size: $font-size-h2; }
 h3, .h3 { font-size: $font-size-h3; }
@@ -108,3 +107,4 @@ table {
 .title_pole,.title_field {
   display: none;
 }
+
