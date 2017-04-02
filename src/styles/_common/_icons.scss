@@ -1,5 +1,9 @@
 .icon {
   display: inline-block;
 }
+.icon-svg{
+  fill: none;
+  stroke: #000;
+}
 @import "icons-img";
 @import "icons-svg";
