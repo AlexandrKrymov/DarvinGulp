@@ -45,33 +45,43 @@
   font-weight: $font-bold;
 }
 
-.hide-mobile{
-  @include mediaMax($screen-phone){
+.hide-xs{
+  @include mediaMax($screen-xs){
     display: none;
   }
 }
-.show-mobile{
-  @include mediaMin($screen-phone){
+.show-xs{
+  @include mediaMin($screen-xs){
     display: none;
   }
 }
-.hide-tablet{
-  @include mediaMax($screen-tablet){
+.hide-sm{
+  @include mediaMax($screen-sm){
     display: none;
   }
 }
-.show-tablet{
-  @include mediaMin($screen-tablet){
+.show-sm{
+  @include mediaMin($screen-sm){
     display: none;
   }
 }
-.hide-tablet{
-  @include mediaMax($screen-tablet){
+.hide-md{
+  @include mediaMax($screen-md){
     display: none;
   }
 }
-.show-tablet{
-  @include mediaMin($screen-tablet){
+.show-md{
+  @include mediaMin($screen-md){
+    display: none;
+  }
+}
+.hide-lg{
+  @include mediaMax($screen-lg){
+    display: none;
+  }
+}
+.show-lg{
+  @include mediaMin($screen-lg){
     display: none;
   }
 }
