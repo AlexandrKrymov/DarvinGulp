@@ -38,4 +38,5 @@ $('.js-menu-main a').on('click',function (e) {
 });
 function jsMenuReset() {
     $('#menu-main').attr('style','').find('.dropdown-menu').attr('style','');
+    $('.js-menu-toggle').removeClass('is-active')
 }
