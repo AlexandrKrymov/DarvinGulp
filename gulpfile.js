@@ -37,6 +37,7 @@ if($.svg){
             'js:modernizr',
             'js',
             'sass',
+            'sass:print',
             'sass:vendor',
             'templates',
             $.gulp.parallel('watch', 'server')
@@ -53,6 +54,7 @@ if($.svg){
             'js:modernizr',
             'js',
             'sass',
+            'sass:print',
             'sass:vendor',
             'templates',
             $.gulp.parallel('watch', 'server')
