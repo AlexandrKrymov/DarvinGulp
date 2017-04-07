@@ -32,7 +32,7 @@ textarea{
   min-height: 40*4px;
   line-height: 40px;
   resize: none;
-
+  @include appearance();
   @include placeholder(){
     
     @include transition(.3s);
