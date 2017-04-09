@@ -5,3 +5,4 @@ $('input,textarea').on('change',function () {
         $(this).addClass('changed')
     }
 });
+autosize($('.js-textarea'));
