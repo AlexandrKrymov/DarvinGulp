@@ -1,5 +1,31 @@
 var mapMain;
+var mapContacts;
+function mapContactsResponsive() {
+    mapMain.setCenter([55.655275, 37.553648]);
+    if($(window).width() <=768){
+        mapMain.behaviors.disable('drag');
+        //mapContacts.behaviors.disable('multiTouch');
 
+    }else{
+        mapMain.behaviors.enable('drag');
+        mapMain.behaviors.enable('multiTouch');
+    }
+    if($(window).width() <=450){
+        if($(document).find('#map-contacts').length > 0){
+            ymaps.ready(function () {
+                mapMain.setZoom(2);
+            });
+
+        }
+
+    }else{
+        if($(document).find('#map-contacts').length > 0){
+            ymaps.ready(function () {
+                mapMain.setZoom(3);
+            });
+        }
+    }
+}
 function initMaps(){
 
     if($(document).find('#map-main').length > 0){
