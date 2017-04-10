@@ -16,7 +16,7 @@ module.exports = {
           templates: ['./src/templates/pages/*.jade','./src/templates/pages/*.pug'],
           scripts: './src/scripts/',
           styles: './src/styles/',
-          images: ['./src/images/**/*.*','!./src/images/icons/**/*.*'],
+          images: './src/images/**/*.*',
           icons:'./src/images/icons/',
           iconsTemplateSvg:'./src/styles/_common/_icons-svg-template.scss'
       },

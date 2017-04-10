@@ -10,7 +10,7 @@ module.exports = function () {
         $.gulp.watch(path.stylesApp, $.gulp.series('sass'));
         $.gulp.watch(path.stylesPrint, $.gulp.series('sass:print'));
         $.gulp.watch(path.stylesVendor, $.gulp.series('sass:vendor'));
-        $.gulp.watch(path.images, $.gulp.series('images'));
+        $.gulp.watch(path.images, $.gulp.series('images','icons:img','sass'));
         $.gulp.watch(path.icons, $.gulp.series('icons:img','sass'));
         $.gulp.watch(path.iconsSvg, $.gulp.series('icons:svg','sass'));
         $.gulp.watch(path.iconsTemplate, $.gulp.series('icons:img','sass'));
