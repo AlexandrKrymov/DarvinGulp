@@ -5,9 +5,9 @@ $body-background:             #fff;
 //typography
 
 $font-family-base:            'Open Sans', sans-serif;
-$font-size-base:              16px;
-$font-color-base:             #615e5f;
-$line-height-base:            24/16;
+$font-size-base:              14px;
+$font-color-base:             #333333;
+$line-height-base:            24/14;
 
 $font-light:                  300;
 $font-regular:                400;
@@ -18,29 +18,29 @@ $font-bold:                   700;
 $headings-font-family:        $font-family-base !default;
 $headings-font-weight:        $font-light !default;
 $headings-line-height:        1.1 !default;
-$headings-color:              #413758 !default;
+$headings-color:              #333333 !default;
 
-$font-size-h1:                58px;
-$font-size-h2:                36px;
-$font-size-h3:                24px;
-$font-size-h4:                $font-size-h3 - 4;
-$font-size-h5:                $font-size-h4 - 2;
+$font-size-h1:                42px;
+$font-size-h2:                28px;
+$font-size-h3:                21px;
+$font-size-h4:                18px;
+$font-size-h5:                16px;
 $font-size-h6:                $font-size-base + 1;
 
 
 //layout
-$container-width:            1280px !default;
+$container-width:            690px !default;
 $window-width:               $container-width!default;
 
 
 //grid
 $grid-columns:               12 !default;
-$grid-gutter-width:          20px !default;
+$grid-gutter-width:          10px !default;
 
 $screen-container:           $container-width;
 $screen-xs:                  425px !default;
 $screen-sm:                  768px !default;
-$screen-md:                  $container-width !default;
+$screen-md:                  1024px !default;
 $screen-lg:                  1200px !default;
 
 
