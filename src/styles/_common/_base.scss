@@ -49,8 +49,6 @@ h6, .h6 {
 .table-wrapper{
   &.is-active{
     overflow: auto;
-    overflow-y: hidden;
-    overflow-x: auto;
     width: 100%;
   }
 }
