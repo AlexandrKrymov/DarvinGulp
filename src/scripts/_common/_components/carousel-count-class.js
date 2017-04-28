@@ -1,21 +1,27 @@
-/*
- * example
- * div.carousel.carousel_3(data-dots="false")
- *
- * */
 $('.carousel').each(function () {
     var carousel = $(this);
     var carouselLength = '';
     var dots = true;
     var nav = true;
+    var loop = true;
+    var margin = 0;
+    var autoplay = false;
 
+    if(carousel.data('margin') !== null){
+        margin = carousel.data('margin');
+    }
     if(carousel.data('dots') == false){
         dots = false
+    }
+    if(carousel.data('autoplay') == true){
+        autoplay = false
     }
     if(carousel.data('nav') == false){
         dots = false
     }
-
+    if(carousel.data('loop') == false){
+        loop = false
+    }
     $.each(carousel.attr('class').split(/\s+/), function(i, name) {
         if (name.indexOf('carousel_') > -1) {
             carouselLength = name.match(/\d+/)[0];
@@ -28,11 +34,11 @@ $('.carousel').each(function () {
         }
         carousel.addClass("owl-carousel").owlCarousel({
             items:carouselLength,
-            loop:false,
+            loop:loop,
             nav:nav,
-            margin:20,
+            margin:margin,
             dots:dots,
-            autoplay:false,
+            autoplay:autoplay,
             onInitialized:function () {
                 carousel.find('.owl-item').addClass('element');
             }
