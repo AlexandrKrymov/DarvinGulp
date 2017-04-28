@@ -1,5 +1,5 @@
 /*
- * div.carousel.carousel_3
+ * div.carousel.carousel_3(data-margin="20")
  *
  * */
 $('.carousel').each(function () {
@@ -35,6 +35,7 @@ $('.carousel').each(function () {
     if(carousel.find('.carousel__item').length > carouselLength){
         if(carousel.hasClass('be-photoswipe-gallery')){
             carousel.find('.element').removeClass('element');
+            loop = false;
         }
         carousel.addClass("owl-carousel").owlCarousel({
             items:carouselLength,
