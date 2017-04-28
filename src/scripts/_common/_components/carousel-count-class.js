@@ -21,7 +21,7 @@ $('.carousel').each(function () {
         autoplay = false
     }
     if(carousel.data('nav') == false){
-        dots = false
+        nav = false
     }
     if(carousel.data('loop') == false){
         loop = false
