@@ -1,3 +1,7 @@
+/*
+ * div.carousel.carousel_3
+ *
+ * */
 $('.carousel').each(function () {
     var carousel = $(this);
     var carouselLength = '';
