@@ -39,9 +39,6 @@
     display: table;
     height: 100%;
     margin: 0 auto;
-    @include mediaMax($container-width){
-      width: 100%;
-    }
   }
   .window__inner{
     display: table-cell;
