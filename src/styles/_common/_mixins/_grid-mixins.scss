@@ -233,3 +233,106 @@
   @include loop-grid-columns($grid-columns, $class, push);
   @include loop-grid-columns($grid-columns, $class, offset);
 }
+
+
+
+// Generate the col-$size columns
+@mixin make-column($columns, $gutter: $grid-gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  float: left;
+  width: percentage(($columns / $grid-columns));
+}
+@mixin make-column-offset($columns) {
+  margin-left: percentage(($columns / $grid-columns));
+}
+@mixin make-column-push($columns) {
+  left: percentage(($columns / $grid-columns));
+}
+@mixin make-column-pull($columns) {
+  right: percentage(($columns / $grid-columns));
+}
+
+
+
+@mixin make-columns($i: 1, $list: ".col-#{$i}") {
+  @for $i from (1 + 1) through $grid-columns {
+    $list: "#{$list}, .col-#{$i}";
+  }
+  #{$list} {
+    position: relative;
+    // Prevent columns from collapsing when empty
+    min-height: 1px;
+    // Inner gutter via padding
+    padding-left:  ceil(($grid-gutter-width / 2));
+    padding-right: floor(($grid-gutter-width / 2));
+  }
+}
+
+
+@mixin float-columns($i: 1, $list: ".col-#{$i}") {
+  @for $i from (1 + 1) through $grid-columns {
+    $list: "#{$list}, .col-#{$i}";
+  }
+  #{$list} {
+    float: left;
+  }
+}
+
+
+@mixin calc-column($index, $type) {
+  @if ($type == width) and ($index > 0) {
+    .col-#{$index} {
+      width: percentage(($index / $grid-columns));
+    }
+  }
+  @if ($type == push) and ($index > 0) {
+    .col-push-#{$index} {
+      left: percentage(($index / $grid-columns));
+    }
+  }
+  @if ($type == push) and ($index == 0) {
+    .col-push-0 {
+      left: auto;
+    }
+  }
+  @if ($type == pull) and ($index > 0) {
+    .col-pull-#{$index} {
+      right: percentage(($index / $grid-columns));
+    }
+  }
+  @if ($type == pull) and ($index == 0) {
+    .col-pull-0 {
+      right: auto;
+    }
+  }
+  @if ($type == offset) {
+    .col-offset-#{$index} {
+      margin-left: percentage(($index / $grid-columns));
+    }
+  }
+}
+
+
+@mixin loop-columns($columns, $type) {
+  @for $i from 0 through $columns {
+    @include calc-column($i, $type);
+  }
+}
+
+
+// Create grid for col-$size
+@mixin make-col-grid() {
+  @include float-columns();
+  @include loop-columns($grid-columns, width);
+  @include loop-columns($grid-columns, pull);
+  @include loop-columns($grid-columns, push);
+  @include loop-columns($grid-columns, offset);
+}
+
+
+
+
