@@ -4,7 +4,9 @@
 .row {
   @include make-row;
 }
+
 @include make-grid-columns;
+@include make-col-grid();
 
 @media (min-width: $screen-xs-min) {
   @include make-grid(xs);
