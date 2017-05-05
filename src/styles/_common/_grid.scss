@@ -5,9 +5,10 @@
   @include make-row;
 }
 @include make-grid-columns;
-@include make-grid(xs);
 
-
+@media (min-width: $screen-xs-min) {
+  @include make-grid(xs);
+}
 @media (min-width: $screen-sm-min) {
   @include make-grid(sm);
 }
