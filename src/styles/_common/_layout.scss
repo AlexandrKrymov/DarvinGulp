@@ -62,7 +62,7 @@
   cursor: pointer;
   visibility: hidden;
   opacity: 0;
-  @include transition($transition-time);
+  @include transition($transition-time,linear);
   .icon{
     vertical-align: middle;
   }
@@ -73,3 +73,14 @@
   }
 }
 
+.breadcrumbs{
+  span, a {
+    display: inline;
+    vertical-align: middle;
+  }
+  .breadcrumbs__sep{
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 10px;
+  }
+}
