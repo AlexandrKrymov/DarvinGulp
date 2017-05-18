@@ -1,7 +1,7 @@
 a{
   color: $links-color;
   text-decoration: underline;
-  @include transition($transition-time);
+  @include transition($transition-time, linear);
   &:hover{
     text-decoration: none;
   }
@@ -40,12 +40,21 @@ p{
 
 
 ul, ol {
+   margin: 15px 0;
   @include designList(){
    
    
   }
 }
-
+ul{
+  padding-left: 20px;
+}
+ol{
+  padding-left: 15px;
+  li{
+    padding-left: 5px;
+  }
+}
 
 table{
   @include designTable(table-stripped){
@@ -69,7 +78,9 @@ table{
 .bigpic{
   
 }
+.bigpic-wrapper{
 
+}
 
 .owl-carousel{
   .owl-nav{
