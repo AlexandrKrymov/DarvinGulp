@@ -3,24 +3,23 @@
   max-width: $container-width;
   margin: 0 auto;
   box-sizing: border-box;
-  padding: 0 $grid-gutter-width;
+  padding: 0 ($grid-gutter-width/2);
 }
 .container-fixed {
   width: $container-width;
   margin: 0 auto;
   box-sizing: border-box;
-  padding: 0 $grid-gutter-width;
+  padding: 0 ($grid-gutter-width/2);
 }
 .container-fluid {
   width: 100%;
   box-sizing: border-box;
-  padding: 0 $grid-gutter-width;
+  padding: 0 ($grid-gutter-width/2);
 }
 .container-overflow{
   overflow: hidden;
   display: block;
 }
-
 
 .main-wrapper{
 
