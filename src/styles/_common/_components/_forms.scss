@@ -5,23 +5,27 @@
   text-transform: none;
   text-decoration: none;
   *{
+    float: none;
+    padding: 0;
+    margin: 0;
     display: block;
     list-style: none;
-    @include fontParent();
+    &:before,&:after{
+      display: none;
+    }
+    @include fontInherit();
   }
+
   &.error{
     text-align: left;
     color: red;
     font-size: 12px;
-    font-weight: $font-light;
+    font-weight: $font-regular;
   }
   &.success{
     color: green;
-    *{
-      text-align: center;
-      font-size: $font-size-base;
-      font-weight: $font-semibold;
-    }
+    text-align: center;
+    font-weight: $font-semibold;
   }
 }
 
@@ -29,16 +33,15 @@ textarea{
   border: none;
   display: block;
   width: 100%;
-  min-height: 40*4px;
-  line-height: 40px;
   resize: none;
   @include appearance();
-  @include placeholder(){
-    
-    @include transition(.3s);
+   @include transition($transition-time);
+   @include placeholder(){
+    opacity: 1;
+    @include transition($transition-time,linear);
   }
   @include placeholderHover(){
-   
+    opacity: 0;
   }
 }
 
@@ -49,13 +52,13 @@ input[type="text"], input[type="email"], input[type="password"], input[type="tel
   width: 100%;
   border: none;
   @include appearance;
-  @include transition(.3s);
+  @include transition($transition-time);
   @include placeholder(){
-   
-    @include transition(.3s);
+    opacity: 1;
+    @include transition($transition-time,linear);
   }
   @include placeholderHover(){
-  
+    opacity: 0;
   }
   &:hover,&:focus,&.is-changed{
    
