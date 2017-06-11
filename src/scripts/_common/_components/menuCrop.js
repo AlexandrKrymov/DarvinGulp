@@ -86,8 +86,8 @@ function menuResponse(menuWrapper,helperWrapper,breakpoint) {
 
     $(window).on('click',function (event) {
         if(!(event.target == navHelper || navHelper.find(event.target).length > 0)){
-            navHelper.find('.menu-burger').removeClass('is-active');
-            navHelper.find('.menu-burger').next().first().fadeOut();
+            navHelper.find('.menu-hamburger').removeClass('is-active');
+            navHelper.find('.menu-hamburger').next().first().fadeOut();
         }
     });
 }
