@@ -8,7 +8,7 @@ function menuResponse(menuWrapper,helperWrapper,breakpoint) {
     function menuResponseInit() {
         menuCropped.empty();
 
-        if (navHelper.width() >= 0){
+         if (nav.is('.nav_cropped')){
             var navWidth = nav.width()-navHelper.width();
         }else{
             navWidth = nav.width();
