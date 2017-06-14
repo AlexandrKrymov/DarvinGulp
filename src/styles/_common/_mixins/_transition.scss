@@ -1,14 +1,7 @@
-@mixin transition($time,$type){
-  -webkit-transition: all $time $type;
-  -moz-transition: all $time $type;
-  -ms-transition: all $time $type;
-  -o-transition: all $time $type;
-  transition: all $time $type;
-}
-@mixin transitionProp($prop,$time, $type){
-  -webkit-transition: $prop $time $type;
-  -moz-transition: $prop $time $type;
-  -ms-transition: $prop $time $type;
-  -o-transition: $prop $time $type;
-  transition: $prop $time $type;
+@mixin transition($selector: all, $animation: linear, $duration: $transition-time) {
+  -webkit-transition: $selector $animation $duration;
+  -moz-transition: $selector $animation $duration;
+  -ms-transition: $selector $animation $duration;
+  -o-transition: $selector $animation $duration;
+  transition: $selector $animation $duration;
 }
