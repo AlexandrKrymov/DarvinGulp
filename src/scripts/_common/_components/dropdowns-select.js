@@ -18,12 +18,18 @@ $('.js-dropdown-select').each(function () {
         currentVal.attr('data-select-value', '');
     }
 
-    select.find('.dropdown-select__current-val').on('click',function () {
+       select.find('.dropdown-select__current-val').on('click','*',function(e) {
         if(select.is('.is-opened')){
             select.removeClass('is-opened');
         }else{
             select.addClass('is-opened');
         }
+
+        if(event.target.closest('.dropdown-select__current-val')){
+            return false;
+        }
+
+        e.stopPropagation();
     });
 
     selectOptions.on('click',function () {
