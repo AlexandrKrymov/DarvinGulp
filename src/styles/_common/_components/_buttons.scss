@@ -18,7 +18,7 @@
   background: none;
   font-family: $font-family-base;
   @include appearance();
-  @include transition($transition-time, linear);
+  @include transition();
 }
 .btn-block{
   display: block;
