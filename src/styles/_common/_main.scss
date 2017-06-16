@@ -1,7 +1,7 @@
 a{
   color: $links-color;
   text-decoration: underline;
-  @include transition($transition-time, linear);
+  @include transition();
   &:hover{
     text-decoration: none;
   }
