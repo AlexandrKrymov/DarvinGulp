@@ -45,6 +45,9 @@ function initMaps(){
                 }
             ));
         mapContacts.behaviors.disable('scrollZoom');
+        mapContacts.controls.add('routeEditor');
+        mapContacts.controls.add('zoomControl');
+        mapContacts.controls.add('searchControl');
     }
 
 
