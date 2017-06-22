@@ -19,18 +19,10 @@ h1, h2, h3, h4, h5, h6,
   font-weight: $headings-font-weight;
   line-height: $headings-line-height;
   color: $headings-color;
-
-  small,
-  .small {
-    font-weight: normal;
-    line-height: 1;
-    color: inherit;
-  }
 }
 h1, .h1,
 h2, .h2,
 h3, .h3 {
-
   small,
   .small {
     font-size: 65%;
@@ -44,7 +36,12 @@ h6, .h6 {
     font-size: 75%;
   }
 }
-
+small,
+.small {
+  font-weight: normal;
+  color: inherit;
+  font-size: 75%;
+}
 
 .table-wrapper{
   &.is-active{
