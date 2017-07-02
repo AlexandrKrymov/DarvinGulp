@@ -10,7 +10,7 @@ $('.js-popup').click(function(e){
     }
 });
 
-$(window).on('click',function( event ) {
+$('.window').on('click',function( event ) {
     var popup = $('.window.is-active');
     var overlay = $('#js-window-overlay');
     if(event.target == $('.window__close')
