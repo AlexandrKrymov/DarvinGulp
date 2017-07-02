@@ -1,5 +1,4 @@
-.overlay_dark,
-.overlay_dark_ring {
+.window-overlay, .overlay_dark, .overlay_dark_ring {
   background: rgba(0, 0, 0, 0.7);
   bottom: 0;
   display: block;
@@ -13,8 +12,7 @@
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
-#loading,
-#loading_ring {
+#loading, #loading_ring {
   background: url("../images/loader.svg") no-repeat scroll center center transparent;
   background-size: 30px 30px;
   bottom: 0;
@@ -27,8 +25,10 @@
   width: 100%;
   z-index: 1120;
 }
+
 .window {
   position: fixed;
+  display: none;
   overflow: auto;
   z-index: 1000;
   left: 0;
@@ -38,28 +38,28 @@
   .window__container{
     display: table;
     height: 100%;
-    margin: 0 auto;
+    width: 100%;
+    overflow: auto;
+    box-sizing: border-box;
   }
   .window__inner{
     display: table-cell;
     vertical-align: middle;
-    @include mediaMax($window-width){
-      padding: $grid-gutter-width;
-    }
+    box-sizing: border-box;
+    width: 100%;
+    padding: $grid-gutter-width;
   }
 
   .window__body{
+    margin: 0 auto;
     box-sizing: border-box;
-    width: $window-width;
     background: #fff;
-    padding: 60px;
     border-radius: 10px;
     position: relative;
-    @include mediaMax($window-width){
+    padding: $grid-gutter-width;
+    width: $window-width;
+    @include mediaMax($window-width + $grid-gutter-width*2){
       width: 100%;
-    }
-    @include mediaMax($screen-xs){
-      padding: 40px 30px;
     }
   }
 
@@ -67,11 +67,9 @@
     position: absolute;
     display: block;
     cursor: pointer;
-    top: 15px;
-    right: 15px;
+    top: 0;
+    right: 0;
     font-size: 0;
   }
-
 }
-
 
