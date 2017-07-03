@@ -43,7 +43,9 @@ function initMap() {
     }
 }
 
-
+if (typeof google === 'object' && typeof google.maps === 'object') {
+    initMap();
+}
 
 $(window).on('resize',function () {
     footerMap.setCenter({lat: 24.976332, lng: 55.075576});
