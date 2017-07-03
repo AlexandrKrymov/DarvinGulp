@@ -47,7 +47,22 @@ if (typeof google === 'object' && typeof google.maps === 'object') {
     initMap();
 }
 
-$(window).on('resize',function () {
-    footerMap.setCenter({lat: 24.976332, lng: 55.075576});
-    google.maps.event.trigger(footerMap, 'resize');
+
+function mapResponsive() {
+    if($('#js-item-card-map').length){
+        if (typeof google === 'object' && typeof google.maps === 'object') {
+            if($(window).width() < 768){
+                map.setOptions({ 'draggable': false });
+                map.setOptions({ 'scrollwheel': false });
+            }
+            map.setCenter({lat: 24.976332, lng: 55.075576});
+            google.maps.event.trigger(map, 'resize');
+        }
+    }
+}
+$(window).on('load',function () {
+    mapResponsive();
+}).on('resize',function () {
+  
+    mapResponsive();
 });
