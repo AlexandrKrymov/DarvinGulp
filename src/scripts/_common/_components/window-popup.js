@@ -6,6 +6,7 @@ $('.js-popup').click(function(e){
         $('body').css('overflow','hidden');
         target.addClass('is-active').fadeIn();
         overlay.fadeIn();
+        e.stopPropagation();
         e.preventDefault();
     }
 });
