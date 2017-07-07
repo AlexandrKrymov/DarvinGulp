@@ -11,18 +11,23 @@ $('.js-popup').click(function(e){
     }
 });
 function windowCloseInit() {
-    $('body').on('click',function( event ) {
+   $('body').on('click',function( event ) {
         var popup = $('.window.is-active');
-        var overlay = $('#js-window-overlay');
-        if(event.target == $('.window__close')
-            || event.target.closest('.window__close')
-            || !(event.target.closest('.window__body'))
-            || event.target == overlay
-        ){
+       	var overlay = $('#js-window-overlay');
+        overlay.fadeOut();
+        popup.fadeOut().removeClass('is-active');
+        $('body').css('overflow','');
+    });
+	 $('.window__close').on('click',function( event ) {
+	        var popup = $('.window.is-active');
+	       	var overlay = $('#js-window-overlay');	        
             overlay.fadeOut();
             popup.fadeOut().removeClass('is-active');
             $('body').css('overflow','');
-        }
+             event.preventDefault();
+	    });
+    $('.window .window__body').on('click',function( event ) {
+        event.stopPropagation();
     });
 }    
 
