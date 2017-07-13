@@ -1,7 +1,8 @@
 var mapContacts;
 function mapContactsResponsive() {
     if($('#map-contacts').length > 0){
-        mapContacts.panTo( 55.753321, 37.857773);
+        mapContacts.setCenter([55.676072, 37.260546]);
+        //mapContacts.panTo( 55.753321, 37.857773);
         mapContacts.setZoom(15);
         if($(window).width() <=768){
             mapContacts.behaviors.disable('drag');
