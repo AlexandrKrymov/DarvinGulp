@@ -1,4 +1,3 @@
-
 (function( $ ){
 
     var methods = {
@@ -21,13 +20,16 @@
                 var selectOptions = select.find('.select-dropdown__options .select-dropdown__item');
                 var dropdown = select.find('.select-dropdown__dropdown');
                 var selectWidth = dropdown.width() + 1;
+
                 selectID++;
 
                 $(document).ready(function () {
                     if(settings.showPlaceholder){
                         currentVal.html('<div class="select-dropdown__placeholder"><span>'+selectPlaceholder+'</span></div>');
-                        currentVal.attr('data-select-value', '');
-                        select.attr('data-value','');
+                        select.attr('data-value',null);
+                        if(select.find('.select-dropdown__placeholder').width() > selectWidth){
+                            selectWidth = Math.ceil(select.find('.select-dropdown__placeholder').width())
+                        }
                         select.css('width',selectWidth).addClass('is-loaded');
                         select.trigger('change');
                     }else if (selectOptions.length > 0){
@@ -38,9 +40,9 @@
                         select.css('width',selectWidth).addClass('is-loaded');
                         select.trigger('change');
                     } else {
-                        currentVal.html('<div class="select-dropdown__placeholder"><span>Список пуст</span></div>');
+                        currentVal.html('<div class="select-dropdown__item"><span>Список пуст</span></div>');
                         currentVal.attr('data-select-value', '');
-                        select.attr('data-value','');
+                        select.attr('data-value',null);
                         select.css('width',selectWidth).addClass('is-loaded');
                         select.trigger('change');
                     }
@@ -107,9 +109,11 @@
 })( $ );
 
 
-$('.select-dropdown').selectDropdown({
+
+$('#js-equipment-search-cat').selectDropdown({
+    'showPlaceholder'     : true,
+    'placeholder'         : 'Выберите категорию',
     'onChange': function (data) {
-        console.log(data.val)
+        console.log('ID категории = '+data.val)
     }
 });
-
