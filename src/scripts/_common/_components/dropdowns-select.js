@@ -1,17 +1,3 @@
-/*
-.select-dropdown
-    .select-dropdown__current
-    .select-dropdown__dropdown
-        .select-dropdown__options
-            .select-dropdown__item(data-value="12")
-                span Все для баскетбола
-            .select-dropdown__item(data-value="22")
-                span Все для футбола
-            .select-dropdown__item(data-value="23")
-                span Все для всего
-
-*/
-
 
 (function( $ ){
 
@@ -39,7 +25,7 @@
 
                 $(document).ready(function () {
                     if(settings.showPlaceholder){
-                        currentVal.html('<div class="select-dropdown__item"><span>'+selectPlaceholder+'</span></div>');
+                        currentVal.html('<div class="select-dropdown__placeholder"><span>'+selectPlaceholder+'</span></div>');
                         currentVal.attr('data-select-value', '');
                         select.attr('data-value','');
                         select.css('width',selectWidth).addClass('is-loaded');
@@ -52,7 +38,7 @@
                         select.css('width',selectWidth).addClass('is-loaded');
                         select.trigger('change');
                     } else {
-                        currentVal.html('<div class="select-dropdown__item"><span>Выберите из списка</span></div>');
+                        currentVal.html('<div class="select-dropdown__placeholder"><span>Список пуст</span></div>');
                         currentVal.attr('data-select-value', '');
                         select.attr('data-value','');
                         select.css('width',selectWidth).addClass('is-loaded');
