@@ -13,7 +13,6 @@
 */
 
 
-
 (function( $ ){
 
     var methods = {
@@ -89,8 +88,11 @@
                     event.stopPropagation();
                     $('.select-dropdown').not($(this)).removeClass('is-opened').find('.select-dropdown__dropdown').stop().fadeOut();
                 }).on('change',function () {
-                    var val = select.attr('data-value');
-                    settings.onChange(val)
+                    var data = {
+                        'val'   : select.attr('data-value'),
+                        'id'    : select.attr('data-id')
+                    };
+                    settings.onChange(data)
                 });
 
             });
@@ -120,7 +122,8 @@
 
 
 $('.select-dropdown').selectDropdown({
-    'onChange': function (val) {
-        console.log(val)
+    'onChange': function (data) {
+        console.log(data.val)
     }
 });
+
