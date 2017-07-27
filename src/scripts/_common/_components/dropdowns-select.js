@@ -1,69 +1,126 @@
-$(window).on('click',function (e) {
-    $('.js-dropdown-select').each(function () {
-        $(this).removeClass('is-opened');
-    })
-})
-$('.js-dropdown-select').each(function () {
-    var select = $(this);
-    var selectDropdown = select.find('.dropdown-select__dropdown');
-    var currentVal = select.find('.dropdown-select__current-val .dropdown-select__val');
-    var selectPlaceholder = select.data('placeholder');
-    var selectOptions = select.find('.dropdown-select__options .dropdown-select__val');
+/*
+.select-dropdown
+    .select-dropdown__current
+    .select-dropdown__dropdown
+        .select-dropdown__options
+            .select-dropdown__item(data-value="12")
+                span Все для баскетбола
+            .select-dropdown__item(data-value="22")
+                span Все для футбола
+            .select-dropdown__item(data-value="23")
+                span Все для всего
 
-    if(selectPlaceholder){
-        currentVal.text(selectPlaceholder);
-        currentVal.attr('data-select-value', '');
-    }else if (selectOptions.length > 0){
-        var clone = selectOptions.eq(0).clone();
-        currentVal.replaceWith(clone);
-        currentVal = select.find('.dropdown-select__current-val .dropdown-select__val');
-        selectOptions.eq(0).addClass('is-active');
-    } else {
-        currentVal.text("Выберите опцию");
-        currentVal.attr('data-select-value', '');
+*/
+
+
+
+(function( $ ){
+
+    var methods = {
+        init : function( options ) {
+
+            var settings = $.extend( {
+                'showPlaceholder'     : false,
+                'placeholder'         : 'Выберите из списка',
+                'onChange'            : function() {}
+            }, options);
+            var selectID = 0;
+
+            return this.each(function() {
+                var select = $(this);
+                select.attr('data-value','0');
+                select.attr('data-id',selectID);
+                var selectDropdown = select.find('.select-dropdown__dropdown');
+                var currentVal = select.find('.select-dropdown__current');
+                var selectPlaceholder = settings.placeholder;
+                var selectOptions = select.find('.select-dropdown__options .select-dropdown__item');
+                var dropdown = select.find('.select-dropdown__dropdown');
+                var selectWidth = dropdown.width() + 1;
+                selectID++;
+
+                $(document).ready(function () {
+                    if(settings.showPlaceholder){
+                        currentVal.html('<div class="select-dropdown__item"><span>'+selectPlaceholder+'</span></div>');
+                        currentVal.attr('data-select-value', '');
+                        select.attr('data-value','');
+                        select.css('width',selectWidth).addClass('is-loaded');
+                        select.trigger('change');
+                    }else if (selectOptions.length > 0){
+                        var clone = selectOptions.eq(0).clone();
+                        currentVal.empty().html(clone);
+                        selectOptions.eq(0).addClass('is-active');
+                        select.attr('data-value',clone.data('value'));
+                        select.css('width',selectWidth).addClass('is-loaded');
+                        select.trigger('change');
+                    } else {
+                        currentVal.html('<div class="select-dropdown__item"><span>Выберите из списка</span></div>');
+                        currentVal.attr('data-select-value', '');
+                        select.attr('data-value','');
+                        select.css('width',selectWidth).addClass('is-loaded');
+                        select.trigger('change');
+                    }
+                });
+                select.find('.select-dropdown__current').on('click',function () {
+                    if(dropdown.is(':visible')){
+                        select.removeClass('is-opened');
+                        dropdown.stop().fadeOut();
+                    }else{
+                        select.addClass('is-opened');
+                        dropdown.stop().fadeIn();
+                    }
+                });
+                selectOptions.on('click',function () {
+                    var option = $(this);
+                    var clone = option.clone();
+                    currentVal.empty().html(clone);
+                    select.attr('data-value',clone.data('value'));
+                    option.addClass('is-active');
+                    option.siblings('.select-dropdown__item').removeClass('is-active');
+                    select.removeClass('is-opened');
+                    dropdown.stop().fadeOut();
+                    select.trigger('change');
+                });
+                $(window).on('click',function (event) {
+                    select.each(function () {
+                        select.removeClass('is-opened').find('.select-dropdown__dropdown').stop().fadeOut();
+                    });
+                });
+                select.on('click',function (event) {
+                    event.stopPropagation();
+                    $('.select-dropdown').not($(this)).removeClass('is-opened').find('.select-dropdown__dropdown').stop().fadeOut();
+                }).on('change',function () {
+                    var val = select.attr('data-value');
+                    settings.onChange(val)
+                });
+
+            });
+
+        },
+        set : function(  ) {
+
+        },
+        get : function(  ) {
+            return this.each(function() {
+                console.log( $(this).attr('data-value'));
+            });
+        }
+    };
+
+    $.fn.selectDropdown = function( method ) {
+        // логика вызова метода
+        if ( methods[method] ) {
+            return methods[ method ].apply( this, Array.prototype.slice.call( arguments, 1 ));
+        } else if ( typeof method === 'object' || ! method ) {
+            return methods.init.apply( this, arguments );
+        } else {
+            $.error( 'Метод с именем ' +  method + ' не существует ' );
+        }
+    };
+})( $ );
+
+
+$('.select-dropdown').selectDropdown({
+    'onChange': function (val) {
+        console.log(val)
     }
-
-
-
-    selectOptions.on('click',function () {
-        var option = $(this);
-        var clone = option.clone();
-        currentVal.replaceWith(clone);
-        currentVal = select.find('.dropdown-select__current-val .dropdown-select__val');
-        option.addClass('is-active');
-        option.siblings('.dropdown-select__val').removeClass('is-active');
-        select.removeClass('is-opened');
-        select.trigger('change');
-    });
-
-    select.find('.dropdown-select__current-val').on('click','*',function(e) {
-        $('.js-dropdown-select').not(select).removeClass('is-opened');
-
-        if(select.is('.is-opened')){
-            select.removeClass('is-opened');
-        }else{
-            select.addClass('is-opened');
-        }
-
-        if(event.target.closest('.dropdown-select__current-val')){
-            return false;
-        }
-        e.stopPropagation();
-    });
-
-    /*  if(selectOptions.length > 3) {
-          selectOptions.closest('.dropdown-select__options ').mCustomScrollbar({
-              axis:'y',
-              mouseWheel:{
-                  enable: true
-              },
-              scrollbarPosition: 'inside',
-              advanced:{ updateOnContentResize: true }
-          });
-      }*/
-
-}).on('change',function(){
-    var select = $(this);
-    var currentVal = select.find('.dropdown-select__current-val .dropdown-select__val');
-    console.log(currentVal.data('select-value'));
 });
