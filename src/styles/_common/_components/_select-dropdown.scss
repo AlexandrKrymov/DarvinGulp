@@ -1,0 +1,35 @@
+.select-dropdown{
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  position: relative;
+
+  .select-dropdown__current{
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .select-dropdown__dropdown{
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 100%;
+  }
+  .select-dropdown__options{
+    display: block;
+  }
+  .select-dropdown__placeholder, .select-dropdown__item{
+
+  }
+
+
+  &.is-loaded{
+    .select-dropdown__dropdown{
+      position: absolute;
+      left: 0;
+      top: 100%;
+      display: none;
+      width: 100%;
+    }
+  }
+}
