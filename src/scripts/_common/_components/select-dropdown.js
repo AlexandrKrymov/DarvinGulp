@@ -1,3 +1,4 @@
+
 (function( $ ){
 
     var methods = {
@@ -12,7 +13,7 @@
 
             return this.each(function() {
                 var select = $(this);
-                select.attr('data-value','0');
+                select.removeAttr('data-value');
                 select.attr('data-id',selectID);
                 var selectDropdown = select.find('.select-dropdown__dropdown');
                 var currentVal = select.find('.select-dropdown__current');
@@ -26,7 +27,6 @@
                 if(!select.is('.is-loaded')){
                     if(settings.showPlaceholder){
                         currentVal.html('<div class="select-dropdown__placeholder"><span>'+selectPlaceholder+'</span></div>');
-                        select.attr('data-value',null);
                         if(select.find('.select-dropdown__placeholder').width() > selectWidth){
                             selectWidth = Math.ceil(select.find('.select-dropdown__placeholder').width())
                         }
@@ -47,7 +47,6 @@
                         select.trigger('change');
                     }
                 }
-
 
                 select.find('.select-dropdown__current').on('click',function () {
                     if(dropdown.is(':visible')){
@@ -104,7 +103,8 @@
                 item.addClass('is-active').siblings('.select-dropdown__item').removeClass('is-active');
                 select.attr('data-value',val);
                 select.trigger('change');
-               }
+            }
+
         },
         get : function(  ) {
             return $(this).attr('data-value');
@@ -124,12 +124,17 @@
 })( $ );
 
 $('#js-equipment-search-cat').selectDropdown({
-    'showPlaceholder'     : true,
-    'placeholder'         : 'Выберите категорию',
-    'onChange': function (data) {
-        console.log(data.val);
-        console.log(data.select);
-    }
-});
+        'showPlaceholder'     : true,
+        'placeholder'         : 'Выберите категорию',
+        'onChange': function (data) {
+            console.log('ID категории = '+data.val);
+            console.log(data.select);
+            if(data.val){
+               
+            }else{
+                
+            }
+        }
+    });
 $('#js-equipment-search-cat').selectDropdown('set','3');
 $('#js-equipment-search-cat').selectDropdown('get');
