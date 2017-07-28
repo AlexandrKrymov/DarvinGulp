@@ -23,30 +23,32 @@
 
                 selectID++;
 
-                $(document).ready(function () {
+                if(!select.is('.is-loaded')){
                     if(settings.showPlaceholder){
                         currentVal.html('<div class="select-dropdown__placeholder"><span>'+selectPlaceholder+'</span></div>');
                         select.attr('data-value',null);
                         if(select.find('.select-dropdown__placeholder').width() > selectWidth){
                             selectWidth = Math.ceil(select.find('.select-dropdown__placeholder').width())
                         }
-                        select.css('width',selectWidth).addClass('is-loaded');
+                        select.css('min-width',selectWidth).addClass('is-loaded');
                         select.trigger('change');
                     }else if (selectOptions.length > 0){
                         var clone = selectOptions.eq(0).clone();
                         currentVal.empty().html(clone);
                         selectOptions.eq(0).addClass('is-active');
                         select.attr('data-value',clone.data('value'));
-                        select.css('width',selectWidth).addClass('is-loaded');
+                        select.css('min-width',selectWidth).addClass('is-loaded');
                         select.trigger('change');
                     } else {
                         currentVal.html('<div class="select-dropdown__item"><span>Список пуст</span></div>');
                         currentVal.attr('data-select-value', '');
                         select.attr('data-value',null);
-                        select.css('width',selectWidth).addClass('is-loaded');
+                        select.css('min-width',selectWidth).addClass('is-loaded');
                         select.trigger('change');
                     }
-                });
+                }
+
+
                 select.find('.select-dropdown__current').on('click',function () {
                     if(dropdown.is(':visible')){
                         select.removeClass('is-opened');
@@ -77,22 +79,35 @@
                     $('.select-dropdown').not($(this)).removeClass('is-opened').find('.select-dropdown__dropdown').stop().fadeOut();
                 }).on('change',function () {
                     var data = {
-                        'val'   : select.attr('data-value'),
-                        'id'    : select.attr('data-id')
+                        'select' : select,
+                        'val'    : select.attr('data-value'),
+                        'id'     : select.attr('data-id')
                     };
                     settings.onChange(data)
                 });
 
+                $(document).ready(function () {
+                    select.trigger('change');
+                });
+
+
             });
 
         },
-        set : function(  ) {
-
+        set : function( val ) {
+            var select = $(this);
+            var item = select.find('.select-dropdown__options .select-dropdown__item[data-value="'+val+'"]');
+            if(item.length > 0){
+                var currentVal = select.find('.select-dropdown__current');
+                var clone = item.clone();
+                currentVal.empty().html(clone);
+                item.addClass('is-active').siblings('.select-dropdown__item').removeClass('is-active');
+                select.attr('data-value',val);
+                select.trigger('change');
+               }
         },
         get : function(  ) {
-            return this.each(function() {
-                console.log( $(this).attr('data-value'));
-            });
+            return $(this).attr('data-value');
         }
     };
 
@@ -108,12 +123,13 @@
     };
 })( $ );
 
-
-
 $('#js-equipment-search-cat').selectDropdown({
     'showPlaceholder'     : true,
     'placeholder'         : 'Выберите категорию',
     'onChange': function (data) {
-        console.log('ID категории = '+data.val)
+        console.log(data.val);
+        console.log(data.select);
     }
 });
+$('#js-equipment-search-cat').selectDropdown('set','3');
+$('#js-equipment-search-cat').selectDropdown('get');
