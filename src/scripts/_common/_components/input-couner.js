@@ -49,7 +49,7 @@
                     var val = input.val();
 
                     if (/[^[0-9]/.test(val)) {
-                        input.val(0);
+                        input.val(parseInt(input.val()));
                     }
                     input.trigger('change');
                 });
