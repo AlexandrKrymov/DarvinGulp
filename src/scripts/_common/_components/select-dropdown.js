@@ -1,6 +1,6 @@
 
 (function( $ ){
-
+    var selectID = 0;
     var methods = {
         init : function( options ) {
 
@@ -9,7 +9,7 @@
                 'placeholder'         : 'Выберите из списка',
                 'onChange'            : function() {}
             }, options);
-            var selectID = 0;
+            
 
             return this.each(function() {
                 var select = $(this);
