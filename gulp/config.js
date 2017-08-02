@@ -27,7 +27,6 @@ module.exports = {
           scriptsVendor: ['./src/scripts/vendor.js','./src/scripts/vendor/**/*.js'],
           scriptsModerniz: './src/scripts/modernizr-custom.js',
           stylesApp: ['./src/styles/app.scss','./src/styles/_common/**/*.scss'],
-          stylesPrint: ['./src/styles/print.scss','./src/styles/_common/**/*.scss'],
           stylesVendor: ['./src/styles/vendor.scss','./src/styles/vendor/**/*.scss'],
           images: ['./src/images/','!./src/images/icons/'],
           icons:['./src/images/icons/**/*.*','!./src/images/icons/**/*.svg'],
