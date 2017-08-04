@@ -46,42 +46,42 @@
 }
 
 .hide-xs{
-  @include mediaMax($screen-xs){
-    display: none;
+  @include mediaMax($screen-xs -1){
+    display: none!important;
   }
 }
 .show-xs{
   @include mediaMin($screen-xs){
-    display: none;
+    display: none!important;
   }
 }
 .hide-sm{
-  @include mediaMax($screen-sm){
-    display: none;
+  @include mediaMax($screen-sm - 1){
+    display: none!important;
   }
 }
 .show-sm{
   @include mediaMin($screen-sm){
-    display: none;
+    display: none!important;
   }
 }
 .hide-md{
-  @include mediaMax($screen-md){
-    display: none;
+  @include mediaMax($screen-md - 1){
+    display: none!important;
   }
 }
 .show-md{
   @include mediaMin($screen-md){
-    display: none;
+    display: none!important;
   }
 }
 .hide-lg{
   @include mediaMax($screen-lg){
-    display: none;
+    display: none!important;
   }
 }
 .show-lg{
   @include mediaMin($screen-lg){
-    display: none;
+    display: none!important;
   }
 }
