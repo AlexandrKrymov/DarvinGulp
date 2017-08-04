@@ -1,7 +1,7 @@
-@mixin transition($selector: all, $type: linear, $time: $transition-time) {
-  -webkit-transition: $selector $type $time;
-  -moz-transition: $selector $type $time;
-  -ms-transition: $selector $type $time;
-  -o-transition: $selector $type $time;
-  transition: $selector $type $time;
+@mixin transition($selector: all, $type: linear, $time: $transition-time, $delay: 0s) {
+  -webkit-transition: $selector $type $time $delay;
+  -moz-transition: $selector $type $time $delay;
+  -ms-transition: $selector $type $time $delay;
+  -o-transition: $selector $type $time $delay;
+  transition: $selector $type $time $delay;
 }
