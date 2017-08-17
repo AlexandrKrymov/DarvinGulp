@@ -19,7 +19,7 @@ $('.js-textarea').each(function () {
             $('body').append(helper);
             autosize(helper);
             autosize.update(helper);
-            fieldActive.css('display', 'block');
+            fieldActive.fadeIn(200);
         }).on('focusout mouseout',function () {
             if(!$.trim(helper.val()).length) {
                 fieldActive.css('height',field.css("line-height")).fadeOut(200);
