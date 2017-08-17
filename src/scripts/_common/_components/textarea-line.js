@@ -1,18 +1,17 @@
 $('.js-textarea').each(function () {
     var field = $(this);
-    field.attr('rows', '1');
+    //field.attr('rows', '1');
     autosize(field);
 
     if (Modernizr.csspointerevents) {
         field.wrap('<div class="textarea-container"></div>');
-        var helper = field.clone().attr('class','textarea-helper').css('height','40px').css('visibility','hidden');
+        var helper = field.clone().attr('rows', '1').css('position','fixed').css('min-height',0).css('height', $(this).height());
         var container = field.closest('.textarea-container');
-        container.append('<div class="textarea-line-active"></div>');
-        var fieldActive = container.find('.textarea-line-active');
+        container.append('<div class="textarea-helper"></div>');
+        var fieldActive = container.find('.textarea-helper');
         fieldActive.on('click', function () {
             field.focus();
         });
-
 
         field.on('focus', function () {
             helper.css('width',field.width());
