@@ -5,7 +5,7 @@ $('.js-textarea').each(function () {
 
     if (Modernizr.csspointerevents) {
         field.wrap('<div class="textarea-container" style="display: block;position: relative"></div>');
-        var helper = field.clone().attr('rows', '1').css('position','fixed').css('min-height',0).css('height', field.css('line-height'));
+        var helper = field.clone().attr('rows', '').css('position','fixed').css('min-height',0).css('height', field.css('line-height')).css('left','-100%').css('opacity',0);
         var container = field.closest('.textarea-container');
         container.append('<div class="textarea-helper" style="position:absolute;left:0;top:'+ field.position().top +';width:100%;pointer-events: none;display:none;height:'+field.css('line-height')+'"></div>');
         var fieldActive = container.find('.textarea-helper');
@@ -14,14 +14,14 @@ $('.js-textarea').each(function () {
             field.focus();
         });
 
-        field.on('focus mouseenter', function () {
+        field.on('focus ', function () {
             helper.css('width',field.width());
             $('body').append(helper);
             autosize(helper);
             autosize.update(helper);
             fieldActive.css('top', field.position().top);
             fieldActive.fadeIn(200);
-        }).on('focusout mouseout',function () {
+        }).on('focusout ',function () {
             if(!$.trim(helper.val()).length) {
                 fieldActive.css('height',field.css("line-height")).fadeOut(200);
             }else{
