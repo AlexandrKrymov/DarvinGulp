@@ -10,6 +10,7 @@ $('.js-popup').click(function(e){
         e.preventDefault();
     }
 });
+
 function windowCloseInit() {
    $('body').on('click',function( event ) {
         var popup = $('.window.is-active');
@@ -17,16 +18,14 @@ function windowCloseInit() {
         overlay.fadeOut();
         popup.fadeOut().removeClass('is-active');
         $('body').css('overflow','');
-    });
-	 $('.window__close').on('click',function( event ) {
-	        var popup = $('.window.is-active');
-	       	var overlay = $('#js-window-overlay');	        
+    }).on('click','.window__close',function( event ) {
+            var popup = $('.window.is-active');
+            var overlay = $('#js-window-overlay');
             overlay.fadeOut();
             popup.fadeOut().removeClass('is-active');
             $('body').css('overflow','');
              event.preventDefault();
-	    });
-    $('.window .window__body').on('click',function( event ) {
+    }).on('click','.window .window__body',function( event ) {
         event.stopPropagation();
     });
 }    
