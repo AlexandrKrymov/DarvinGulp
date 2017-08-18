@@ -10,7 +10,9 @@ function placeholder(selector) {
         input.on('blur',function (event) {
             placeholder.removeClass('is-focused');
         });
+        placeholder.on('click',function (event) {
+            input.focus();
+        });
     });
-
 };
 
