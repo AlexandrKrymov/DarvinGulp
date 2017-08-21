@@ -164,3 +164,23 @@
     };
 })( $ );
 
+
+$('.js-main-menu-toggle').on('click',function (event) {
+    var menu = $('#js-header-nav');
+    if(menu.is(':visible')){
+        menu.menuApp('close');
+    }else{
+        menu.menuApp('open');
+    }
+    event.preventDefault();
+});
+
+$('#js-header-nav').menuApp({
+    'dropdownClass': 'dropdown-menu',
+    'onOpen'       : function (data) {
+        $('body').css('overflow','hidden');
+    },
+    'onClose'        : function (data) {
+        $('body').css('overflow','');
+    }
+});
