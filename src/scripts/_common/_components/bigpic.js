@@ -6,17 +6,19 @@ $('.bigpic').each(function(e){
 
     img.wrap('<span class="bigpic-wrapper"></span>');
     var imgWrapper = img.closest('.bigpic-wrapper');
-    imgWrapper.attr('style', img.attr('style'))
-        .css('width','')
-        .css('height','')
-        .css('padding','')
-        .css('padding-left','')
-        .css('padding-right','')
-        .css('padding-top','')
-        .css('padding-bottom','');
-    img.attr('style','')
-        .css('height', imgHeight)
-        .css('width', imgWidth);
+    img.imagesLoaded(function () {
+        imgWrapper.attr('style', img.attr('style'))
+            .css('width','')
+            .css('height','')
+            .css('padding','')
+            .css('padding-left','')
+            .css('padding-right','')
+            .css('padding-top','')
+            .css('padding-bottom','');
+        img.attr('style','')
+            .css('height', imgHeight)
+            .css('width', imgWidth);
+    });
 
     if(link.length > 0){
         link.on('click',function (e) {
