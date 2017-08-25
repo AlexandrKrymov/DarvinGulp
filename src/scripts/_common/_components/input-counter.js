@@ -9,8 +9,8 @@
             return this.each(function() {
                 var input = $(this);
                 input.wrap('<div class="input-counter"></div>');
-                var btnPlus = $('<div class="input-counter__plus"><span></span></div>');
-                var btnMinus = $('<div class="input-counter__minus"><span></span></div>');
+                var btnPlus = $('<div class="input-counter__btn input-counter__plus"><span>+</span></div>');
+                var btnMinus = $('<div class="input-counter__btn input-counter__minus"><span>-</span></div>');
                 btnPlus.insertBefore(input);
                 btnMinus.insertAfter(input);
 
