@@ -1,21 +1,18 @@
 (function( $ ){
-
     var methods = {
         init : function( options ) {
 
             var settings = $.extend( {
                 'onChange'            : function() {}
             }, options);
-            var counterID = 0;
 
             return this.each(function() {
-                var counter = $(this);
-                var input = counter.find('.input-counter__val');
-                var btnPlus = counter.find('.input-counter__plus');
-                var btnMinus = counter.find('.input-counter__minus');
-
-                counterID++;
-
+                var input = $(this);
+                input.wrap('<div class="input-counter"></div>');
+                var btnPlus = $('<div class="input-counter__plus"><span></span></div>');
+                var btnMinus = $('<div class="input-counter__minus"><span></span></div>');
+                btnPlus.insertBefore(input);
+                btnMinus.insertAfter(input);
 
                 if(input.val() < 0 || input.val() === ''){
                     input.val(0);
@@ -54,9 +51,9 @@
                     input.trigger('change');
                 });
 
-                counter.on('change',function () {
+                input.on('change',function () {
                     var data = {
-                        'counter' : counter,
+                        'counter' : input,
                         'val'    : input.val()
                     };
                     settings.onChange(data);
