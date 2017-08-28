@@ -34,7 +34,7 @@
 
                 btnMinus.on('click', function (event) {
                     var val = parseInt(input.val());
-                    if(input.val() == 0){
+                    if(input.val() == 1){
                         input.val(1);
                         input.trigger('change');
                     }else{
