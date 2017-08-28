@@ -14,14 +14,14 @@
                 btnPlus.insertAfter(input);
                 btnMinus.insertBefore(input);
 
-                if(input.val() < 0 || input.val() === ''){
-                    input.val(0);
+                if(input.val() < 1 || input.val() === ''){
+                    input.val(1);
                 }
 
                 btnPlus.on('click', function (event) {
                     var val = parseInt(input.val());
                     if(input.val() == ''){
-                        input.val(0);
+                        input.val(1);
                         input.trigger('change');
                     }else{
                         input.val(val + 1);
@@ -33,7 +33,7 @@
                 btnMinus.on('click', function (event) {
                     var val = parseInt(input.val());
                     if(input.val() == 0){
-                        input.val(0);
+                        input.val(1);
                         input.trigger('change');
                     }else{
                         input.val(val - 1);
