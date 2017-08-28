@@ -11,8 +11,8 @@
                 input.wrap('<div class="input-counter"></div>');
                 var btnPlus = $('<div class="input-counter__btn input-counter__plus"><span>+</span></div>');
                 var btnMinus = $('<div class="input-counter__btn input-counter__minus"><span>-</span></div>');
-                btnPlus.insertBefore(input);
-                btnMinus.insertAfter(input);
+                btnPlus.insertAfter(input);
+                btnMinus.insertBefore(input);
 
                 if(input.val() < 0 || input.val() === ''){
                     input.val(0);
