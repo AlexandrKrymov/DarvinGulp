@@ -1,12 +1,12 @@
 $('.bigpic').each(function(e){
     var img = $(this);
     var link = img.closest('a');
-    var imgHeight = img.css('height');
-    var imgWidth = img.css('width');
 
     img.wrap('<span class="bigpic-wrapper"></span>');
     var imgWrapper = img.closest('.bigpic-wrapper');
     img.imagesLoaded(function () {
+        var imgHeight = img.css('height');
+        var imgWidth = img.css('width');
         imgWrapper.attr('style', img.attr('style'))
             .css('width','')
             .css('height','')
