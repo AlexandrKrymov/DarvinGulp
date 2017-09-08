@@ -25,13 +25,11 @@
 	cursor: default;
 }
 .highslide-image {
-	border-width: 2px;
-	border-style: solid;
-	border-color: white;
-	background: white;
+	border: none;
+	background: none;
 }
 .highslide-wrapper, .highslide-outline {
-	background: white;
+	background: none;
 }
 .glossy-dark {
 	background: #111;
