@@ -164,3 +164,13 @@
     };
 })( $ );
 
+$('#js-header-nav').menuApp({
+    'dropdownClass': 'dropdown-menu',
+    'breakpoint'    : 1000,
+    'onOpen'       : function (data) {
+        $('body').css('overflow','hidden');
+    },
+    'onClose'        : function (data) {
+        $('body').css('overflow','');
+    }
+});
