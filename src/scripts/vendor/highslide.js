@@ -1461,7 +1461,7 @@ HsExpander.prototype.createFullExpand = function () {
 			title: hs.fullExpandTitle
 		},
 		{
-			background: 'url('+ hs.graphicsDir + hs.fullExpandIcon+')',
+			background: 'url('+ hs.graphicsDir + hs.fullExpandIcon+') no-repeat',
 			display: 'block',
 			margin: '0 10px 10px 0',
 			width: '45px',
