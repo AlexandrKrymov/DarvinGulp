@@ -16,6 +16,11 @@
                 var menu = $(this);
                 var menuCurrent;
 
+                var overlay = $('<div class="menu-overlay"></div>');
+                overlay.on('click',function (event) {
+                    menu.trigger('close');
+                });
+
                 function checkBreakpoint() {
                     if(settings.breakpoint !== 0){
                         if($(window).width() <= parseInt(settings.breakpoint) ){
@@ -34,6 +39,7 @@
 
                 if(checkBreakpoint()){
                     menuHead.prependTo(menu);
+                    overlay.insertBefore(menu);
                 }
 
                 var menuTitle = menuHead.find('.menu__header-title span');
@@ -50,6 +56,7 @@
 
                 menuClose.on('click',function () {
                     menu.trigger('close');
+                    overlay.fadeOut();
                 });
 
 
@@ -114,6 +121,7 @@
                     if(checkBreakpoint()){
                         menuTitle.text(settings.title);
                         menu.stop().addClass('is-active').fadeIn();
+                        overlay.fadeIn();
                         var data = {
                             'menu'          : menu,
                             'menuCurrent'   : menuCurrent
@@ -124,7 +132,7 @@
                 }).on('close',function () {
                     if(checkBreakpoint()){
                         menuBackToogle();
-
+                        overlay.fadeOut();
                         menu.stop().removeClass('is-active').fadeOut().promise().done(function () {
                             menu.css('display','');
 
@@ -164,13 +172,3 @@
     };
 })( $ );
 
-$('#js-header-nav').menuApp({
-    'dropdownClass': 'dropdown-menu',
-    'breakpoint'    : 1000,
-    'onOpen'       : function (data) {
-        $('body').css('overflow','hidden');
-    },
-    'onClose'        : function (data) {
-        $('body').css('overflow','');
-    }
-});
