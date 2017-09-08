@@ -18,7 +18,7 @@
 
                 function checkBreakpoint() {
                     if(settings.breakpoint !== 0){
-                        if($(window).width() <= settings.breakpoint ){
+                        if($(window).width() <= parseInt(settings.breakpoint) ){
                             return true;
                         }else{
                             return false;
@@ -164,23 +164,3 @@
     };
 })( $ );
 
-
-$('.js-main-menu-toggle').on('click',function (event) {
-    var menu = $('#js-header-nav');
-    if(menu.is(':visible')){
-        menu.menuApp('close');
-    }else{
-        menu.menuApp('open');
-    }
-    event.preventDefault();
-});
-
-$('#js-header-nav').menuApp({
-    'dropdownClass': 'dropdown-menu',
-    'onOpen'       : function (data) {
-        $('body').css('overflow','hidden');
-    },
-    'onClose'        : function (data) {
-        $('body').css('overflow','');
-    }
-});
