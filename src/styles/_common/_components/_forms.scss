@@ -34,6 +34,7 @@ textarea{
   display: block;
   width: 100%;
   resize: none;
+  box-shadow: none;
   @include appearance();
    @include transition();
    @include placeholder(){
@@ -51,6 +52,7 @@ input[type="text"], input[type="email"], input[type="password"], input[type="tel
   text-align: left;
   width: 100%;
   border: none;
+  box-shadow: none;
   @include appearance;
   @include transition();
   @include placeholder(){
